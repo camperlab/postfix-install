@@ -70,12 +70,12 @@ smtps="smtps     inet  n       -       y       -       -       smtpd\n \
  -o smtpd_sasl_path=private/auth"
 sed -i  "/#smtps     inet  n       -       y       -       -       smtpd/i $smtps" /etc/postfix/master.cf
 
-sed -i 's#smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem##g' /etc/postfix/master.cf
-sed -i 's#smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key##g' /etc/postfix/master.cf
-sed -i 's#smtpd_tls_security_level=may##g' /etc/postfix/master.cf
-sed -i 's#smtp_tls_CApath=/etc/ssl/certs##g' /etc/postfix/master.cf
-sed -i 's#smtp_tls_security_level=may##g' /etc/postfix/master.cf
-sed -i 's#smtp_tls_session_cache_database = btree:\${data_directory}/smtp_scache##g' /etc/postfix/master.cf
+sed -i 's#smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem##g' /etc/postfix/main.cf
+sed -i 's#smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key##g' /etc/postfix/main.cf
+sed -i 's#smtpd_tls_security_level=may##g' /etc/postfix/main.cf
+sed -i 's#smtp_tls_CApath=/etc/ssl/certs##g' /etc/postfix/main.cf
+sed -i 's#smtp_tls_security_level=may##g' /etc/postfix/main.cf
+sed -i 's#smtp_tls_session_cache_database = btree:\${data_directory}/smtp_scache##g' /etc/postfix/main.cf
 
 # setup tls settings in main.cf
 
