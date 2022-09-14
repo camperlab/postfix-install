@@ -94,8 +94,8 @@ smtp_tls_session_cache_database = btree:\${data_directory}/smtp_scache\n\n\
 smtpd_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1\n\
 smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1\n\
 smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1"
-sed -i "/# TLS parameters/i $ssl" /etc/postfix/master.cf
-sed -i 's/# TLS parameters//g' /etc/postfix/master.cf
+sed -i "/# TLS parameters/i $ssl" /etc/postfix/main.cf
+sed -i 's/# TLS parameters//g' /etc/postfix/main.cf
 
 # add dovecot support to main.cf
 sed -i -e '$amailbox_transport = lmtp:unix:private/dovecot-lmtp' /etc/postfix/main.cf
